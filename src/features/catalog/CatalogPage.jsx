@@ -45,7 +45,7 @@ const MOCK_ALBUMS = [
   {
     id: 5,
     title: "Caprisongs",
-    artist: "FKA Twigs",
+    artist: "FKA Twigs.",
     year: "2023",
     type: "LP",
     image: fkaCover,
