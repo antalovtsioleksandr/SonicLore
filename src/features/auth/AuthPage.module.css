@@ -1,0 +1,63 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.card {
+  background-color: var(--bg-card);
+  padding: 50px 40px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 420px;
+}
+.logo {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+.subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.inputGroup label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #d4d4d8;
+}
+.inputGroup input {
+  padding: 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background-color: var(--bg-input);
+  color: white;
+  outline: none;
+  font-family: var(--font-sans);
+}
+.btn {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 15px;
+}
+.forgot {
+  display: block;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 12px;
+  margin-top: 20px;
+  cursor: pointer;
+}

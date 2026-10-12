@@ -1,0 +1,127 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+.backBtn {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 60px;
+  display: inline-block;
+}
+.context {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+.tinyCover {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background-color: #333;
+}
+.suptitle {
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+.titleInput {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  color: white;
+  font-size: 48px;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+  outline: none;
+}
+.titleInput::placeholder {
+  color: #555;
+}
+.focusSection {
+  margin-bottom: 30px;
+}
+.focusLabel {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+.tags {
+  display: flex;
+  gap: 10px;
+}
+.tag {
+  padding: 6px 16px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 13px;
+  color: var(--text-muted);
+  background: transparent;
+  cursor: pointer;
+}
+.tagActive {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.toolbar {
+  display: flex;
+  gap: 8px;
+  background-color: var(--bg-card);
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.toolBtn {
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.toolBtn:hover {
+  background-color: #333;
+}
+.editor {
+  width: 100%;
+  min-height: 400px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  line-height: 1.6;
+  outline: none;
+  resize: none;
+  font-family: var(--font-sans);
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.status {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+.publishBtn {
+  padding: 12px 32px;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+}
