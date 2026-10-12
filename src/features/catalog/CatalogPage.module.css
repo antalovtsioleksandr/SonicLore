@@ -1,0 +1,65 @@
+.container {
+  padding: 40px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.header {
+  margin-bottom: 40px;
+}
+.suptitle {
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+.title {
+  font-size: 42px;
+  margin-bottom: 8px;
+}
+.stats {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.card {
+  background-color: var(--bg-card);
+  padding: 16px;
+  border-radius: 12px;
+}
+.cover {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  background-color: #2a2a30;
+  margin-bottom: 16px;
+  background-size: cover;
+  background-position: center;
+}
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+.albumTitle {
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.moreBtn {
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-muted);
+}
