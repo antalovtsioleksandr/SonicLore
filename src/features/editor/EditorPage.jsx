@@ -1,19 +1,29 @@
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./EditorPage.module.css";
 import ethelCover from "../../assets/ethel.png";
+import { usePublish } from "./usePublish";
 
 export const EditorPage = () => {
-  const navigate = useNavigate();
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+
+  const { publishArticle, isPublishing } = usePublish();
+
+  const handlePublish = () => {
+    if (!title || !content) return; // Проста валідація
+    publishArticle({ title, content, albumId: 1 });
+  };
 
   return (
     <div className={styles.container}>
-      <span
+      <Link
+        to="/album"
         className={styles.backBtn}
-        onClick={() => navigate("/album")}
-        style={{ cursor: "pointer" }}
+        style={{ textDecoration: "none", color: "inherit" }}
       >
         ← Back to Album
-      </span>
+      </Link>
 
       <div className={styles.context}>
         <div
@@ -28,10 +38,13 @@ export const EditorPage = () => {
       </div>
 
       <div className={styles.suptitle}>NEW ARTICLE</div>
+
       <input
         type="text"
         className={`${styles.titleInput} serif`}
         placeholder="Article Title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
       />
 
       <div className={styles.focusSection}>
@@ -61,15 +74,20 @@ export const EditorPage = () => {
       <textarea
         className={styles.editor}
         placeholder="Write your article..."
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
       ></textarea>
 
       <div className={styles.footer}>
-        <span className={styles.status}>• Draft saved just now</span>
+        <span className={styles.status}>
+          {title.length > 0 ? "Draft in progress..." : "Draft saved just now"}
+        </span>
         <button
           className={styles.publishBtn}
-          onClick={() => navigate("/catalog")}
+          onClick={handlePublish}
+          disabled={isPublishing}
         >
-          Publish
+          {isPublishing ? "Publishing..." : "Publish"}
         </button>
       </div>
     </div>

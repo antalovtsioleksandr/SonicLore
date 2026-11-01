@@ -1,63 +1,108 @@
 .container {
+  min-height: 100vh;
+  width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
+  justify-content: center;
+  background-color: #0b0b0e;
+  color: #ffffff;
+  padding: 20px;
+  box-sizing: border-box;
 }
+
 .card {
-  background-color: var(--bg-card);
-  padding: 50px 40px;
+  background-color: #121216;
+  border: 1px solid #1e1e26;
   border-radius: 12px;
+  padding: 40px 36px;
   width: 100%;
   max-width: 420px;
-}
-.logo {
   text-align: center;
-  font-size: 36px;
-  margin-bottom: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
+
+.title {
+  font-size: 32px;
+  font-weight: 500;
+  margin: 0 0 8px 0;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
 .subtitle {
-  text-align: center;
-  color: var(--text-muted);
+  color: #8a8a93;
   font-size: 14px;
-  margin-bottom: 40px;
+  margin: 0 0 32px 0;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
 .inputGroup {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 24px;
 }
-.inputGroup label {
-  font-size: 12px;
-  font-weight: 500;
-  color: #d4d4d8;
+
+.label {
+  font-size: 13px;
+  color: #a0a0ab;
 }
-.inputGroup input {
-  padding: 14px;
+
+.input {
+  background-color: #0d0d11;
+  border: 1px solid #242430;
   border-radius: 6px;
-  border: 1px solid var(--border);
-  background-color: var(--bg-input);
-  color: white;
+  padding: 12px 14px;
+  color: #ffffff;
+  font-size: 14px;
   outline: none;
-  font-family: var(--font-sans);
-}
-.btn {
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
   width: 100%;
-  padding: 14px;
-  background-color: var(--accent);
-  color: white;
+}
+
+.input:focus {
+  border-color: #e06853;
+}
+
+.btn {
+  background-color: #e06853;
+  color: #ffffff;
   border: none;
   border-radius: 6px;
-  cursor: pointer;
-  font-weight: 500;
+  padding: 12px;
   font-size: 15px;
-}
-.forgot {
-  display: block;
-  text-align: center;
-  color: var(--text-muted);
-  font-size: 12px;
-  margin-top: 20px;
+  font-weight: 600;
   cursor: pointer;
+  margin-top: 8px;
+  transition: opacity 0.2s ease;
+  width: 100%;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.forgotText {
+  display: block;
+  margin-top: 24px;
+  color: #6e6e78;
+  font-size: 13px;
+  cursor: pointer;
+  text-align: center;
+  transition: color 0.2s ease;
+}
+
+.forgotText:hover {
+  color: #a0a0ab;
 }
