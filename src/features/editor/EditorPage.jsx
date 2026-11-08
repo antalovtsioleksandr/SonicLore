@@ -1,24 +1,61 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import styles from "./EditorPage.module.css";
-import ethelCover from "../../assets/ethel.png";
 import { usePublish } from "./usePublish";
 
 export const EditorPage = () => {
+  const { albumId } = useParams();
+  const [album, setAlbum] = useState(null);
+
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [selectedTags, setSelectedTags] = useState([]);
+
+  const availableTags = [
+    "Vocals",
+    "Theory",
+    "Production",
+    "Lyrics",
+    "Storyline",
+  ];
 
   const { publishArticle, isPublishing } = usePublish();
 
+  useEffect(() => {
+    fetch(`http://localhost:5000/api/albums/${albumId}`)
+      .then((res) => res.json())
+      .then((data) => setAlbum(data))
+      .catch((err) => console.error(err));
+  }, [albumId]);
+
+  const toggleTag = (tag) => {
+    if (selectedTags.includes(tag)) {
+      setSelectedTags(selectedTags.filter((t) => t !== tag));
+    } else {
+      setSelectedTags([...selectedTags, tag]);
+    }
+  };
+
   const handlePublish = () => {
-    if (!title || !content) return; // Проста валідація
-    publishArticle({ title, content, albumId: 1 });
+    if (!title || !content) return;
+
+    publishArticle({
+      title,
+      text: content,
+      albumId,
+      date: new Date().toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }),
+      tags: selectedTags,
+    });
   };
 
   return (
     <div className={styles.container}>
       <Link
-        to="/album"
+        to={`/catalog/${albumId}`}
         className={styles.backBtn}
         style={{ textDecoration: "none", color: "inherit" }}
       >
@@ -29,12 +66,16 @@ export const EditorPage = () => {
         <div
           className={styles.tinyCover}
           style={{
-            backgroundImage: `url(${ethelCover})`,
+            backgroundColor: "#2a2a30",
+            backgroundImage: album ? `url(${album.image})` : "none",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         ></div>
-        <span>Writing a review for: Ethel Cain - Preacher's Daughter</span>
+        <span>
+          Writing a review for:{" "}
+          {album ? `${album.artist} - ${album.title}` : "Loading..."}
+        </span>
       </div>
 
       <div className={styles.suptitle}>NEW ARTICLE</div>
@@ -50,12 +91,15 @@ export const EditorPage = () => {
       <div className={styles.focusSection}>
         <div className={styles.focusLabel}>FOCUS</div>
         <div className={styles.tags}>
-          <button className={`${styles.tag} ${styles.tagActive}`}>
-            Vocals
-          </button>
-          <button className={styles.tag}>Theory</button>
-          <button className={styles.tag}>Production</button>
-          <button className={styles.tag}>Lyrics</button>
+          {availableTags.map((tag) => (
+            <button
+              key={tag}
+              className={`${styles.tag} ${selectedTags.includes(tag) ? styles.tagActive : ""}`}
+              onClick={() => toggleTag(tag)}
+            >
+              {tag}
+            </button>
+          ))}
         </div>
       </div>
 

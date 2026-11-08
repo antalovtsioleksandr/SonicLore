@@ -3,6 +3,7 @@ import { AuthPage } from "./features/auth/AuthPage";
 import { CatalogPage } from "./features/catalog/CatalogPage";
 import { AlbumPage } from "./features/album/AlbumPage";
 import { EditorPage } from "./features/editor/EditorPage";
+import { AddAlbumPage } from "./features/album/AddAlbumPage";
 
 function App() {
   return (
@@ -10,8 +11,9 @@ function App() {
       <Routes>
         <Route path="/" element={<AuthPage />} />
         <Route path="/catalog" element={<CatalogPage />} />
-        <Route path="/album" element={<AlbumPage />} />
-        <Route path="/editor" element={<EditorPage />} />
+        <Route path="/add-album" element={<AddAlbumPage />} />
+        <Route path="/catalog/:id" element={<AlbumPage />} />
+        <Route path="/editor/:albumId" element={<EditorPage />} />
       </Routes>
     </BrowserRouter>
   );
